@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic - Editorial by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<script src="https://kit.fontawesome.com/32976ec123.js" crossorigin="anonymous"></script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="../index.html" class="logo"><strong>Home</strong></a>
+									<ul class="icons">
+										<li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/kaylabollinger/"><span class="label">LinkedIn</span></a></li>
+										<li><a class="icon brands fa-github" href="https://github.com/kaylabollinger"><span class="label">GitHub</span></a></li>
+										<li><a class="fa-solid fa-chart-line" href="https://public.tableau.com/app/profile/kayla.bollinger"></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									
+									<header>
+										<h2>How do casual riders use the Divvy Bike-Share service?</h2>
+										<p>(Google data analytics capstone project)</p>
+									</header>
+
+									<span class="image main"><img src="../images/bikeshare_crop.jpg" alt="" /></span>
+	
+								
+	
+									<p>
+										As part of the Google Data Analytics Certification, I have completed a case study on Divvy* bike-share data. The dataset used in 
+										this case study can be found <a href="https://divvy-tripdata.s3.amazonaws.com/index.html"><u>here</u></a>, and the scenario is as follows: A bike-share company is hoping gain more "member" riders 
+										(people who have purchased an annual membership) by converting "casual" riders (people who use the bike-share service, but are not members) 
+										into members. My task is to use this data to determine any meaningful differences between how casual and member riders use the bike-share service, 
+										and to report my findings along with my top three recommendations on how a marketing team may better target casual riders.
+									</p>
+									<p>	
+										<i>
+											(*The scenario in this case study is built around a fictional bike-share company "Cyclistic", but the data is coming from a real bike-share 
+											company called "Divvy". In this report I will refer to the real company "Divvy" rather than the fictional company "Cyclistic" since I reference Divvy media 
+											in my documentation, and I think it would be confusing to have two different company names floating around.)
+										</i>
+									</p>
+
+									<section>
+										<header>
+											<h3>TL;DR</h3>
+										</header>
+										<p>
+											Casual riders are more likely to: use the bike-share service on the weekend, end their trips at attractions such as parks and museums, and 
+											use electric bikes over classic bikes. Find more details on the work behind this project below, and feel free to explore the Tableau dashboard 
+											here to explore the data even further.
+										</p>
+										<div class='tableauPlaceholder' id='viz1668803659160' style='position: relative'><noscript><a href='#'><img alt='Divvy Bike-Share: Casual vs Member ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Go&#47;GoogleDataAnalyticsCapstone_16686433149630&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='GoogleDataAnalyticsCapstone_16686433149630&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Go&#47;GoogleDataAnalyticsCapstone_16686433149630&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1668803659160');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='1477px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+										<p></p>
+									</section>
+
+									<header>
+										<h2>Full Report:</p>
+									</header>
+	
+									<section>
+										<header>
+											<h3>Business Task</h3>
+										</header>
+										<p>
+											Determine how casual and member riders use Divvy bikes differently, and provide a clear report of the results of this analysis to the marketing team.
+										</p>
+									</section>
+	
+									<section>
+										<header>
+											<h3>Description of Data</h3>
+										</header>
+										<p>
+											Divvy's bike-share data can be found <a href="https://divvy-tripdata.s3.amazonaws.com/index.html">here</a>. We will use the previous 12 months 
+											of data (as specified in the case study) for our analysis--"202111-divvy-tripdata.zip" to "202210-divvy-tripdata.zip". Each file corresponds to 
+											a particular month, and all contain the following information:
+											<li>
+												<b>ride_id</b>: a unique identifier for each ride
+											</li>
+											<li>
+												<b>rideable_type</b>: the type of bike used
+											</li>
+											<li>
+												<b>started_at</b>: time at which the ride started
+											</li>
+											<li>
+												<b>ended_at</b>: time at which the ride ended
+											</li>
+											<li>
+												<b>start_station_name</b>: name of the Divvy parking station the bike was picked up from
+											</li>
+											<li>
+												<b>start_station_id</b>: ID of the corresponding start station
+											</li>
+											<li>
+												<b>end_station_name</b>: name of the Divvy parking station the bike was dropped off at
+											</li>
+											<li>
+												<b>end_station_id</b>: ID of the corresponding end station
+											</li>
+											<li>
+												<b>start_lat</b>: lattitude of the starting location
+											</li>
+											<li>
+												<b>start_lng</b>: longitude of the starting location
+											</li>
+											<li>
+												<b>end_lat</b>: lattitude of the ending location
+											</li>
+											<li>
+												<b>end_lng</b>: longitude of the ending location
+											</li>
+											<li>
+												<b>member_casual</b>: type of rider (casual or member)
+											</li>
+										</p>
+									</section>
+	
+									<section>
+										<header>
+											<h3>Documentation of Cleaning/Manipulation of Data</h3>
+										</header>
+										<p>
+											The data was cleaned/manipulated using Python, and the process is documented in a Jupyter Notebook--<a href="https://github.com/kaylabollinger/GoogleDataAnalyticsCapstone_Divvy/blob/main/DivvyBikeShareData_CleaningAndExploration.ipynb"><u>available on my GitHub</u></a>.
+										</p>
+										<p>
+											Quick summary of significant steps taken in this process:
+											<li>
+												Divvy has two types of bikes available to use--classic bikes or electric bikes. In the data, a third option "docked_bike" is listed. 
+												Based on exploring Divvy data from other months (outside the 12 month scope), the timing of the introduction of electric bikes to their 
+												fleet, and other patterns in the data, I decided that "docked_bike" is the same as a classic bike and replaced these values accordingly. 
+												(Normally this would be a quick question I could ask the stakeholders to clarify, but for the purposes of this case study I am statisfied with 
+												the evidence I reference in the documentation.)
+											</li>
+											<li>
+												Any classic bike data points that do not have a recorded end station were removed from the dataset. Classic bikes must be parked at Divvy stations 
+												(unlike electric bikes, which can be parked anywhere), so if this information is missing then this implies there is either something wrong with the data, 
+												or an unusual event occured (e.g. a bike was lost). This subset of data only accounted to 0.1% of the entire dataset, and since they are not indicitave 
+												of a typical trip, I decided to remove them from the dataset.
+											</li>
+											<li>
+												"False starts"--defined by having a trip duration of less than 2 minutes and the same start/end location--were removed from the dataset. False starts accounted 
+												for 2.5% of the total dataset. Since they are not indicative of a typical trip, I decided to remove them from the dataset.
+											</li>
+										</p>
+									</section>
+	
+									<section>
+										<header>
+											<h3>Summary of Analysis</h3>
+										</header>
+										<p>
+											<li>
+												Casual riders tend to take trips on weekends, as opposed to member riders who typically use the service on weekdays. This could be due to 
+												casual riders using the service for fun weekend trips (supported by findings I will detail next), whereas member riders may be using the service for 
+												more consistent needs like commuting to work.
+											</li>
+											<li>
+												The most popular end stations used for casual riders tend to be in locations near parks, beaches, and museums. The most popular end stations for member riders 
+												tend to be more inland, perhaps near common areas of work (e.g. Clinton St & Washington Blvd near Accenture Tower, or University Ave & 57th St located within 
+												the University of Chicago).
+											</li>
+											<li>
+												Casual riders use electric bikes slightly more frequently than classic bikes, whereas member riders use classic bikes slightly more frequently 
+												than electric bikes. While electric bikes in and of themselves have desirable attributes (less tiring to ride, more modern, etc.), casual riders may 
+												prefer electric bikes due to their convenience--they can be parked anywhere so it may be easier for a casual rider to pick up an electric bike 
+												from wherever they happen to be. Member riders with more consistent use of the bike-share service may have specific Divvy stations where they pick-up and drop-off bikes 
+												as part of their routine, and therefore finding a classic bike to use may be just as easy as finding an electric bike. Also, the use of classic bikes are free for members, 
+												whereas the use of electric bikes include an additional charge.
+											</li>
+											<li>
+												Casual riders tend to use the bikes for longer periods of time than member riders, but not by a large amount (typically just a couple minutes more).
+											</li>
+											<li>
+												All riders tend to use the bike-share service in warmer months as opposed to colder months--members are slightly more likely to use the service in cold months.
+											</li>
+										</p>
+									</section>
+	
+									<section>
+										<header>
+											<h3>Supporting Visualizations</h3>
+										</header>
+										<p>See the Tableau dashboard above.</p>	
+									</section>
+	
+									<section>
+										<header>
+											<h3>Top Three Recommendations</h3>
+										</header>
+										(the case study mentions the marketing team uses "email, social media, and other channels" to promote the bike-share program)
+										<p></p>
+										<li>
+											Connect with casual riders via email. Include information/promote fun attractions that are easy to get to via Divvy bikes, and 
+											emphasize that the Annual Membership would pay for itself after two weekend trips if they usually use the Single Ride service, 
+											or even after just one trip if they usually use the Day Pass.
+										</li>
+										<li>
+											If the marketing team is able to set up advertisements (promoting the membership program) on location at Divvy stations, they may focus 
+											these ads on the more popular end stations for casual riders.
+										</li>
+										<li>
+											When posting on social media to promote the electic bike fleet, include information on discounts for members.
+										</li>
+										<p></p>
+										<p>
+											<i>Additional data that could expand findings</i>: The data provided to the public is, of course, anonymized. However, if rider identifiers are 
+											available in the data within the company, then this would provide invaluable insight. For example, one could determine what the average amount 
+											of savings would be for casual riders that end up spending more than members. 
+										</p>
+									</section>
+
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../index.html">Homepage</a></li>
+										<li><a href="#">About Me</a></li>
+									</ul>
+								</nav>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
