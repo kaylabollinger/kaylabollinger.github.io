@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Kayla Bollinger</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<script src="https://kit.fontawesome.com/32976ec123.js" crossorigin="anonymous"></script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="../index.html" class="logo"><strong>Home</strong></a>
+									<ul class="icons">
+										<li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/kaylabollinger/"><span class="label">LinkedIn</span></a></li>
+										<li><a class="icon brands fa-github" href="https://github.com/kaylabollinger"><span class="label">GitHub</span></a></li>
+										<li><a class="fa-solid fa-chart-line" href="https://public.tableau.com/app/profile/kayla.bollinger"></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									
+									<header>
+										<h2>Data Cleaning in SQL: Tennessee Housing Data</h2>
+										<p>(SQL Code Available <a href="https://github.com/kaylabollinger/SQL_Cleaning_TNHousing/blob/main/TNHousing_Cleaning.sql"><u>Here</u></a>)</p>
+									</header>
+
+									<span class="image main"><img src="../images/house_crop.jpg" alt="" /></span>
+	
+								
+	
+									<p>
+										This portfolio project is a practice in cleaning data using SQL. The dataset was taken from Alex the Analyst's 
+										<a href="https://github.com/AlexTheAnalyst/PortfolioProjects/blob/main/Nashville%20Housing%20Data%20for%20Data%20Cleaning.xlsx">
+										<u>"Data Analyst Portfolio Project"</u></a> series. The SQL code can be found on my GitHub 
+										<a href="https://github.com/kaylabollinger/SQL_Cleaning_TNHousing/blob/main/TNHousing_Cleaning.sql"><u>here</u></a>. 
+										While this work is my own, I am grateful for this series for being such a helpful guide.
+									</p>
+									<p>	
+										Notes on the data cleaning process:
+									</p>
+									<li>
+										To not alter the original data source, the cleaned data was put into a new table labeled "TNHousing_clean". 
+										The cleaned dataset can be found on my GitHub <a href="https://github.com/kaylabollinger/SQL_Cleaning_TNHousing/blob/main/TNHousing_clean.xls"><u>here</u></a>.
+									</li>
+									<li>
+										For some reason while importing the original dataset into Microsoft SQL Server SMS, 
+										rows in the dataset were duplicated many times. Only the unique rows are stored in the cleaned dataset.
+									</li>
+									<li>
+										Alex the Analyst's guide for this project suggests using the attribute "ParcelID" to fill in missing/NULL values 
+										in the "PropertyAddress" column--the suggestion being that ParcelID is unique to each PropertyAddress. However, 
+										when I investigated this further I found that this was not the case (e.g., ParcelID 033 16 0 131.00 has two different 
+										addresses associated with it). This meant that there was no reliable way to find the missing addresses, and so the NULL 
+										values were not changed.
+									</li>
+
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../index.html">Home</a></li>
+										<!-- <li><a href="#">About Me</a></li> -->
+										<li><div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="102065ea-d6b1-4905-80ee-8bab337aec51" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script></li>
+									</ul>
+								</nav>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
