@@ -11,6 +11,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
 		<script src="https://kit.fontawesome.com/32976ec123.js" crossorigin="anonymous"></script>
+		<!-- load html script -->
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script> 
+			$(function(){
+				$("#header").load("../header.html"); 
+			});
+		</script>
+		<script> 
+			$(function(){
+				$("#menu").load("../menu.html"); 
+			});
+		</script>
+		<script> 
+			$(function(){
+				$("#footer").load("../footer.html"); 
+			});
+		</script>
 	</head>
 	<body class="is-preload">
 
@@ -22,15 +39,7 @@
 						<div class="inner">
 
 							<!-- Header -->
-								<header id="header">
-									<a href="../index.html" class="logo"><strong>Home</strong></a>
-									<a href="../aboutme.html" class="logo"><strong>About Me</strong></a>									
-									<ul class="icons">
-										<li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/kaylabollinger/"><span class="label">LinkedIn</span></a></li>
-										<li><a class="icon brands fa-github" href="https://github.com/kaylabollinger"><span class="label">GitHub</span></a></li>
-										<li><a class="fa-solid fa-chart-line" href="https://public.tableau.com/app/profile/kayla.bollinger"></a></li>
-									</ul>
-								</header>
+								<header id="header"></header>
 
 							<!-- Content -->
 								<section>
@@ -69,21 +78,10 @@
 						<div class="inner">
 
 							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="../index.html">Home</a></li>
-										<li><a href="../aboutme.html">About Me</a></li>
-										<li><div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="102065ea-d6b1-4905-80ee-8bab337aec51" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script></li>
-									</ul>
-								</nav>
+								<nav id="menu"></nav>
 
 							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-								</footer>
+								<footer id="footer"></footer>
 
 						</div>
 					</div>
@@ -91,11 +89,11 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
 
 	</body>
 </html>
